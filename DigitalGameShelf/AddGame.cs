@@ -37,5 +37,10 @@ namespace DigitalGameShelf
                 textBox2.Text = "";
             }
         }
+
+        private void CloseBTN_Click(object sender, EventArgs e)
+        {
+            Form.ActiveForm.Hide();
+        }
     }
 }

@@ -42,6 +42,7 @@ namespace DigitalGameShelf
                 if (File.Exists(GameEXEPath))
                 {
                     Process.Start(GameEXEPath);
+                    this.WindowState = FormWindowState.Minimized;
                 }
                 else
                 {
@@ -74,6 +75,12 @@ namespace DigitalGameShelf
         {
             var Selected = listBox1.SelectedItem.ToString();
             GameToLaunch.Text = Selected;
+        }
+
+        private void SFBTN_Click(object sender, EventArgs e)
+        {
+            var EXELoc = Directory.GetCurrentDirectory();
+            Process.Start(EXELoc + "/Games/");
         }
     }
 }

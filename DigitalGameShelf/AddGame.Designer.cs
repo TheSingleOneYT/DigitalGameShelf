@@ -32,11 +32,15 @@ namespace DigitalGameShelf
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.CloseButton = new System.Windows.Forms.Button();
+            this.Grey = new System.Windows.Forms.Panel();
+            this.CloseBTN = new System.Windows.Forms.Button();
+            this.Grey.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
+            this.textBox1.Location = new System.Drawing.Point(12, 40);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(291, 20);
             this.textBox1.TabIndex = 0;
@@ -44,7 +48,7 @@ namespace DigitalGameShelf
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 38);
+            this.textBox2.Location = new System.Drawing.Point(12, 66);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(291, 20);
             this.textBox2.TabIndex = 1;
@@ -52,7 +56,7 @@ namespace DigitalGameShelf
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 64);
+            this.button1.Location = new System.Drawing.Point(12, 92);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(291, 23);
             this.button1.TabIndex = 2;
@@ -60,21 +64,63 @@ namespace DigitalGameShelf
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // CloseButton
+            // 
+            this.CloseButton.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.CloseButton.Location = new System.Drawing.Point(780, 40);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(26, 23);
+            this.CloseButton.TabIndex = 0;
+            this.CloseButton.Text = "X";
+            this.CloseButton.UseVisualStyleBackColor = false;
+            // 
+            // Grey
+            // 
+            this.Grey.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Grey.Controls.Add(this.CloseBTN);
+            this.Grey.Controls.Add(this.CloseButton);
+            this.Grey.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Grey.Location = new System.Drawing.Point(-266, -41);
+            this.Grey.Name = "Grey";
+            this.Grey.Size = new System.Drawing.Size(590, 67);
+            this.Grey.TabIndex = 4;
+            // 
+            // CloseBTN
+            // 
+            this.CloseBTN.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CloseBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.CloseBTN.Location = new System.Drawing.Point(558, 42);
+            this.CloseBTN.Name = "CloseBTN";
+            this.CloseBTN.Size = new System.Drawing.Size(26, 23);
+            this.CloseBTN.TabIndex = 5;
+            this.CloseBTN.Text = "X";
+            this.CloseBTN.UseVisualStyleBackColor = false;
+            this.CloseBTN.Click += new System.EventHandler(this.CloseBTN_Click);
+            // 
             // AddGame
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 98);
+            this.CancelButton = this.CloseBTN;
+            this.ClientSize = new System.Drawing.Size(321, 127);
+            this.ControlBox = false;
+            this.Controls.Add(this.Grey);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddGame";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Game - DigitalGameShelf";
+            this.Grey.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -85,5 +131,8 @@ namespace DigitalGameShelf
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button CloseButton;
+        private System.Windows.Forms.Panel Grey;
+        private System.Windows.Forms.Button CloseBTN;
     }
 }
