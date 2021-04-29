@@ -28,7 +28,7 @@ The game should now be listed in the shelf.
 
 ## Run A Shortcut
 
-Click the shortcut name or type the chorcut name in the 'Game' text box.
+Click the shortcut name or type the shorcut name in the 'Game' text box.
 
 ![screenshot](Assets_Pic_6.PNG)
 
