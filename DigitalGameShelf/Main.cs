@@ -69,6 +69,25 @@ namespace DigitalGameShelf
                     CloseDGSChkbx.Checked = false;
                     File.WriteAllText(PrefDir + "/CloseDGSChkbx.DGSPref", "false");
                 }
+
+                if (File.Exists(PrefDir + "/DiscordDGSChkbx.DGSPref"))
+                {
+                    var PrefOnDiscord = File.ReadAllText(PrefDir + "/DiscordDGSChkbx.DGSPref");
+
+                    if (PrefOnDiscord == "true")
+                    {
+                        Discord_Chkbx.Checked = true;
+                    }
+                    else
+                    {
+                        Discord_Chkbx.Checked = false;
+                    }
+                }
+                else
+                {
+                    CloseDGSChkbx.Checked = false;
+                    File.WriteAllText(PrefDir + "/DiscordDGSChkbx.DGSPref", "false");
+                }
             }
             else
             {
@@ -78,6 +97,40 @@ namespace DigitalGameShelf
                 File.WriteAllText(PrefDir + "/HideDGSChkbx.DGSPref", "true");
                 CloseDGSChkbx.Checked = false;
                 File.WriteAllText(PrefDir + "/CloseDGSChkbx.DGSPref", "false");
+                File.WriteAllText(PrefDir + "/DiscordDGSChkbx.DGSPref", "false");
+            }
+
+            if (Directory.Exists(EXELoc + "/Apps"))
+            {
+                if (File.Exists(EXELoc + "/Apps/Discord.txt"))
+                {
+                    var DiscordLoc = File.ReadAllText(EXELoc + "/Apps/Discord.txt");
+
+                    if (File.Exists(DiscordLoc))
+                    {
+                        Discord_Chkbx.Enabled = true;
+                        Discord_BTN.Text = "Launch Discord";
+                    }
+                    else
+                    {
+                        Discord_Chkbx.Enabled = false;
+                        Discord_Chkbx.Checked = false;
+                        Discord_BTN.Text = "Add Discord As An App";
+                    }
+                }
+                else
+                {
+                    Discord_Chkbx.Enabled = false;
+                    Discord_Chkbx.Checked = false;
+                    Discord_BTN.Text = "Add Discord As An App";
+                }
+            }
+            else
+            {
+                Directory.CreateDirectory(EXELoc + "/Apps");
+                Discord_Chkbx.Checked = false;
+                Discord_Chkbx.Enabled = false;
+                Discord_BTN.Text = "Add Discord As An App";
             }
         }
 
@@ -150,12 +203,24 @@ namespace DigitalGameShelf
                             }
                             else if (CloseDGSChkbx.Checked == true)
                             {
+                                if (Discord_Chkbx.Checked == true)
+                                {
+                                    var Discord = File.ReadAllText(EXELoc + "/Apps/Discord.txt");
+                                    Process.Start(Discord);
+                                }
+
                                 var processess = Process.GetProcessesByName("DigitalGameShelf");
 
                                 foreach (var process in processess)
                                 {
                                     process.Kill();
                                 }
+                            }
+
+                            if (Discord_Chkbx.Checked == true)
+                            {
+                                var Discord = File.ReadAllText(EXELoc + "/Apps/Discord.txt");
+                                Process.Start(Discord);
                             }
                         }
                         else
@@ -171,90 +236,90 @@ namespace DigitalGameShelf
             }
         }
 
-            private void CloseButton_Click(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            var processess = Process.GetProcessesByName("DigitalGameShelf");
+
+            foreach (var process in processess)
             {
-                var processess = Process.GetProcessesByName("DigitalGameShelf");
-
-                foreach (var process in processess)
-                {
-                    process.Kill();
-                }
+                process.Kill();
             }
+        }
 
-            private void AddGameBTN_Click(object sender, EventArgs e)
+        private void AddGameBTN_Click(object sender, EventArgs e)
+        {
+            AddGame addGame = new AddGame();
+            addGame.Show();
+        }
+
+        private void listBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            var Selected = listBox1.SelectedItem.ToString();
+            GameToLaunch.Text = Selected;
+        }
+
+        private void SFBTN_Click(object sender, EventArgs e)
+        {
+            var EXELoc = Directory.GetCurrentDirectory();
+            Process.Start(EXELoc + "/Games/");
+        }
+
+        private void HideDGSChkbx_CheckedChanged(object sender, EventArgs e)
+        {
+            var EXELoc = Directory.GetCurrentDirectory();
+            var PrefDir = EXELoc + "/Preferences";
+
+            if (HideDGSChkbx.Checked == true)
             {
-                AddGame addGame = new AddGame();
-                addGame.Show();
+                File.WriteAllText(PrefDir + "/HideDGSChkbx.DGSPref", "true");
             }
-
-            private void listBox1_SelectedValueChanged(object sender, EventArgs e)
+            else
             {
-                var Selected = listBox1.SelectedItem.ToString();
-                GameToLaunch.Text = Selected;
+                File.WriteAllText(PrefDir + "/HideDGSChkbx.DGSPref", "false");
             }
+        }
 
-            private void SFBTN_Click(object sender, EventArgs e)
+        private void CloseDGSChkbx_CheckedChanged(object sender, EventArgs e)
+        {
+            var EXELoc = Directory.GetCurrentDirectory();
+            var PrefDir = EXELoc + "/Preferences";
+
+            if (CloseDGSChkbx.Checked == true)
             {
-                var EXELoc = Directory.GetCurrentDirectory();
-                Process.Start(EXELoc + "/Games/");
+                File.WriteAllText(PrefDir + "/CloseDGSChkbx.DGSPref", "true");
             }
-
-            private void HideDGSChkbx_CheckedChanged(object sender, EventArgs e)
+            else
             {
-                var EXELoc = Directory.GetCurrentDirectory();
-                var PrefDir = EXELoc + "/Preferences";
-
-                if (HideDGSChkbx.Checked == true)
-                {
-                    File.WriteAllText(PrefDir + "/HideDGSChkbx.DGSPref", "true");
-                }
-                else
-                {
-                    File.WriteAllText(PrefDir + "/HideDGSChkbx.DGSPref", "false");
-                }
+                File.WriteAllText(PrefDir + "/CloseDGSChkbx.DGSPref", "false");
             }
+        }
 
-            private void CloseDGSChkbx_CheckedChanged(object sender, EventArgs e)
+        private void OpenUserFolderBTN_Click(object sender, EventArgs e)
+        {
+            var EXELoc = Directory.GetCurrentDirectory();
+            var PrefDir = EXELoc + "/Preferences";
+
+            Process.Start(PrefDir);
+        }
+
+        private void OpenDGSFolderBTN_Click(object sender, EventArgs e)
+        {
+            var EXELoc = Directory.GetCurrentDirectory();
+
+            Process.Start(EXELoc);
+        }
+
+        private void DeleteSChkbx_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DeleteSChkbx.Checked == true)
             {
-                var EXELoc = Directory.GetCurrentDirectory();
-                var PrefDir = EXELoc + "/Preferences";
-
-                if (CloseDGSChkbx.Checked == true)
-                {
-                    File.WriteAllText(PrefDir + "/CloseDGSChkbx.DGSPref", "true");
-                }
-                else
-                {
-                    File.WriteAllText(PrefDir + "/CloseDGSChkbx.DGSPref", "false");
-                }
+                LaunchBTN.Text = "Delete";
             }
-
-            private void OpenUserFolderBTN_Click(object sender, EventArgs e)
+            else
             {
-                var EXELoc = Directory.GetCurrentDirectory();
-                var PrefDir = EXELoc + "/Preferences";
-
-                Process.Start(PrefDir);
+                LaunchBTN.Text = "Launch";
             }
-
-            private void OpenDGSFolderBTN_Click(object sender, EventArgs e)
-            {
-                var EXELoc = Directory.GetCurrentDirectory();
-
-                Process.Start(EXELoc);
-            }
-
-            private void DeleteSChkbx_CheckedChanged(object sender, EventArgs e)
-            {
-                if (DeleteSChkbx.Checked == true)
-                {
-                    LaunchBTN.Text = "Delete";
-                }
-                else
-                {
-                    LaunchBTN.Text = "Launch";
-                }
-            }
+        }
 
         private void RefreshBTN_Click(object sender, EventArgs e)
         {
@@ -270,5 +335,56 @@ namespace DigitalGameShelf
                 listBox1.Items.Add(Path.GetFileNameWithoutExtension(file));
             }
         }
+
+        private void Discord_BTN_Click(object sender, EventArgs e)
+        {
+            var EXELoc = Directory.GetCurrentDirectory();
+
+            if (File.Exists(EXELoc + "/Apps/Discord.txt"))
+            {
+                var Discord = File.ReadAllText(EXELoc + "/Apps/Discord.txt");
+
+                if (File.Exists(Discord))
+                {
+                    Process.Start(Discord);
+                }
+                else
+                {
+                    MessageBox.Show("Discord is not installed in " + Discord + ".", "DigitalGameShelf", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                AddDiscordForm addDiscordForm = new AddDiscordForm();
+                addDiscordForm.Show();
+            }
+        }
+
+        private void Discord_Chkbx_CheckedChanged(object sender, EventArgs e)
+        {
+            var EXELoc = Directory.GetCurrentDirectory();
+            var PrefDir = EXELoc + "/Preferences";
+
+            if (Discord_Chkbx.Checked == true)
+            {
+                File.WriteAllText(PrefDir + "/DiscordDGSChkbx.DGSPref", "true");
+            }
+            else
+            {
+                File.WriteAllText(PrefDir + "/DiscordDGSChkbx.DGSPref", "false");
+            }
+        }
+
+        private void AboutBTN_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.Show();
+        }
+
+        private void DGS_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.Show();
+        }
     }
-    }
+}
