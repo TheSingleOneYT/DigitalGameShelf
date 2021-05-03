@@ -46,7 +46,7 @@ namespace DigitalGameShelf
             this.CloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CloseButton.Location = new System.Drawing.Point(522, 41);
+            this.CloseButton.Location = new System.Drawing.Point(522, 39);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(26, 23);
             this.CloseButton.TabIndex = 0;
@@ -90,42 +90,50 @@ namespace DigitalGameShelf
             // 
             // GithubBTN
             // 
+            this.GithubBTN.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.GithubBTN.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.GithubBTN.Location = new System.Drawing.Point(12, 158);
             this.GithubBTN.Name = "GithubBTN";
             this.GithubBTN.Size = new System.Drawing.Size(498, 23);
             this.GithubBTN.TabIndex = 27;
             this.GithubBTN.Text = "Github: DigitalGameShelf";
-            this.GithubBTN.UseVisualStyleBackColor = true;
+            this.GithubBTN.UseVisualStyleBackColor = false;
             this.GithubBTN.Click += new System.EventHandler(this.GithubBTN_Click);
             // 
             // YouTubeBTN
             // 
+            this.YouTubeBTN.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.YouTubeBTN.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.YouTubeBTN.Location = new System.Drawing.Point(12, 187);
             this.YouTubeBTN.Name = "YouTubeBTN";
             this.YouTubeBTN.Size = new System.Drawing.Size(233, 23);
             this.YouTubeBTN.TabIndex = 28;
             this.YouTubeBTN.Text = "YouTube: TheSingleOne YT";
-            this.YouTubeBTN.UseVisualStyleBackColor = true;
+            this.YouTubeBTN.UseVisualStyleBackColor = false;
             this.YouTubeBTN.Click += new System.EventHandler(this.YouTubeBTN_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button1.Location = new System.Drawing.Point(277, 187);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(233, 23);
             this.button1.TabIndex = 29;
             this.button1.Text = "Twitter: @TheSingleOneYT";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button2.Location = new System.Drawing.Point(145, 217);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(233, 23);
             this.button2.TabIndex = 30;
             this.button2.Text = "Github: TheSingleOne";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // About

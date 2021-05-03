@@ -132,6 +132,9 @@ namespace DigitalGameShelf
                 Discord_Chkbx.Enabled = false;
                 Discord_BTN.Text = "Add Discord As An App";
             }
+
+            string UserOnWin = SystemInformation.UserName.ToString();
+            WelcomeText.Text = "Welcome " + UserOnWin + "!";
         }
 
         private void LaunchBTN_Click(object sender, EventArgs e)
@@ -250,12 +253,6 @@ namespace DigitalGameShelf
         {
             AddGame addGame = new AddGame();
             addGame.Show();
-        }
-
-        private void listBox1_SelectedValueChanged(object sender, EventArgs e)
-        {
-            var Selected = listBox1.SelectedItem.ToString();
-            GameToLaunch.Text = Selected;
         }
 
         private void SFBTN_Click(object sender, EventArgs e)
@@ -385,6 +382,11 @@ namespace DigitalGameShelf
         {
             About about = new About();
             about.Show();
+        }
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var Selected = listBox1.SelectedItem.ToString();
+            GameToLaunch.Text = Selected;
         }
     }
 }

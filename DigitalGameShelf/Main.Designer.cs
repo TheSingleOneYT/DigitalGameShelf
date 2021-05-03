@@ -33,10 +33,6 @@ namespace DigitalGameShelf
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.GameToLaunch = new System.Windows.Forms.TextBox();
             this.LaunchBTN = new System.Windows.Forms.Button();
-            this.Grey = new System.Windows.Forms.Panel();
-            this.AboutBTN = new System.Windows.Forms.Button();
-            this.AddGameBTN = new System.Windows.Forms.Button();
-            this.CloseButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.DGS = new System.Windows.Forms.Label();
             this.Discord_Chkbx = new System.Windows.Forms.CheckBox();
@@ -54,11 +50,16 @@ namespace DigitalGameShelf
             this.DeleteSChkbx = new System.Windows.Forms.CheckBox();
             this.ExtrasText = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Grey.SuspendLayout();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.AboutBTN = new System.Windows.Forms.Button();
+            this.AddGameBTN = new System.Windows.Forms.Button();
+            this.CloseButton = new System.Windows.Forms.Button();
+            this.WelcomeText = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -69,7 +70,7 @@ namespace DigitalGameShelf
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(580, 342);
             this.listBox1.TabIndex = 0;
-            this.listBox1.SelectedValueChanged += new System.EventHandler(this.listBox1_SelectedValueChanged);
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // GameToLaunch
             // 
@@ -89,60 +90,6 @@ namespace DigitalGameShelf
             this.LaunchBTN.Text = "Launch";
             this.LaunchBTN.UseVisualStyleBackColor = true;
             this.LaunchBTN.Click += new System.EventHandler(this.LaunchBTN_Click);
-            // 
-            // Grey
-            // 
-            this.Grey.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Grey.Controls.Add(this.AboutBTN);
-            this.Grey.Controls.Add(this.AddGameBTN);
-            this.Grey.Controls.Add(this.CloseButton);
-            this.Grey.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Grey.Location = new System.Drawing.Point(-18, -36);
-            this.Grey.Name = "Grey";
-            this.Grey.Size = new System.Drawing.Size(853, 67);
-            this.Grey.TabIndex = 3;
-            // 
-            // AboutBTN
-            // 
-            this.AboutBTN.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.AboutBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.AboutBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AboutBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.AboutBTN.Location = new System.Drawing.Point(726, 40);
-            this.AboutBTN.Name = "AboutBTN";
-            this.AboutBTN.Size = new System.Drawing.Size(48, 23);
-            this.AboutBTN.TabIndex = 7;
-            this.AboutBTN.Text = "About";
-            this.AboutBTN.UseVisualStyleBackColor = false;
-            this.AboutBTN.Click += new System.EventHandler(this.AboutBTN_Click);
-            // 
-            // AddGameBTN
-            // 
-            this.AddGameBTN.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.AddGameBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.AddGameBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddGameBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.AddGameBTN.Location = new System.Drawing.Point(484, 40);
-            this.AddGameBTN.Name = "AddGameBTN";
-            this.AddGameBTN.Size = new System.Drawing.Size(237, 23);
-            this.AddGameBTN.TabIndex = 6;
-            this.AddGameBTN.Text = "Add A Game To The Shelf";
-            this.AddGameBTN.UseVisualStyleBackColor = false;
-            this.AddGameBTN.Click += new System.EventHandler(this.AddGameBTN_Click);
-            // 
-            // CloseButton
-            // 
-            this.CloseButton.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CloseButton.Location = new System.Drawing.Point(780, 40);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(26, 23);
-            this.CloseButton.TabIndex = 0;
-            this.CloseButton.Text = "X";
-            this.CloseButton.UseVisualStyleBackColor = false;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // panel1
             // 
@@ -175,7 +122,7 @@ namespace DigitalGameShelf
             this.DGS.BackColor = System.Drawing.SystemColors.ControlDark;
             this.DGS.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DGS.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.DGS.Location = new System.Drawing.Point(82, 346);
+            this.DGS.Location = new System.Drawing.Point(85, 338);
             this.DGS.Name = "DGS";
             this.DGS.Size = new System.Drawing.Size(60, 25);
             this.DGS.TabIndex = 24;
@@ -202,7 +149,7 @@ namespace DigitalGameShelf
             this.Discord_BTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Discord_BTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Discord_BTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Discord_BTN.Location = new System.Drawing.Point(28, 300);
+            this.Discord_BTN.Location = new System.Drawing.Point(27, 287);
             this.Discord_BTN.Name = "Discord_BTN";
             this.Discord_BTN.Size = new System.Drawing.Size(177, 23);
             this.Discord_BTN.TabIndex = 20;
@@ -213,7 +160,7 @@ namespace DigitalGameShelf
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pictureBox3.Location = new System.Drawing.Point(18, 290);
+            this.pictureBox3.Location = new System.Drawing.Point(17, 277);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(196, 43);
             this.pictureBox3.TabIndex = 19;
@@ -225,7 +172,7 @@ namespace DigitalGameShelf
             this.RefreshBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.RefreshBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RefreshBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.RefreshBTN.Location = new System.Drawing.Point(28, 249);
+            this.RefreshBTN.Location = new System.Drawing.Point(27, 239);
             this.RefreshBTN.Name = "RefreshBTN";
             this.RefreshBTN.Size = new System.Drawing.Size(177, 23);
             this.RefreshBTN.TabIndex = 18;
@@ -239,7 +186,7 @@ namespace DigitalGameShelf
             this.OpenDGSFolderBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.OpenDGSFolderBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OpenDGSFolderBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.OpenDGSFolderBTN.Location = new System.Drawing.Point(28, 191);
+            this.OpenDGSFolderBTN.Location = new System.Drawing.Point(27, 181);
             this.OpenDGSFolderBTN.Name = "OpenDGSFolderBTN";
             this.OpenDGSFolderBTN.Size = new System.Drawing.Size(177, 23);
             this.OpenDGSFolderBTN.TabIndex = 16;
@@ -253,7 +200,7 @@ namespace DigitalGameShelf
             this.SFBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.SFBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SFBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.SFBTN.Location = new System.Drawing.Point(28, 220);
+            this.SFBTN.Location = new System.Drawing.Point(27, 210);
             this.SFBTN.Name = "SFBTN";
             this.SFBTN.Size = new System.Drawing.Size(177, 23);
             this.SFBTN.TabIndex = 5;
@@ -267,7 +214,7 @@ namespace DigitalGameShelf
             this.OpenUserFolderBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.OpenUserFolderBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OpenUserFolderBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.OpenUserFolderBTN.Location = new System.Drawing.Point(28, 162);
+            this.OpenUserFolderBTN.Location = new System.Drawing.Point(27, 152);
             this.OpenUserFolderBTN.Name = "OpenUserFolderBTN";
             this.OpenUserFolderBTN.Size = new System.Drawing.Size(177, 23);
             this.OpenUserFolderBTN.TabIndex = 7;
@@ -278,7 +225,7 @@ namespace DigitalGameShelf
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pictureBox2.Location = new System.Drawing.Point(18, 154);
+            this.pictureBox2.Location = new System.Drawing.Point(17, 144);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(196, 128);
             this.pictureBox2.TabIndex = 15;
@@ -289,7 +236,7 @@ namespace DigitalGameShelf
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(25, 102);
+            this.label2.Location = new System.Drawing.Point(24, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 14;
@@ -337,7 +284,7 @@ namespace DigitalGameShelf
             this.DeleteSChkbx.AutoSize = true;
             this.DeleteSChkbx.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.DeleteSChkbx.ForeColor = System.Drawing.SystemColors.Control;
-            this.DeleteSChkbx.Location = new System.Drawing.Point(28, 120);
+            this.DeleteSChkbx.Location = new System.Drawing.Point(28, 116);
             this.DeleteSChkbx.Name = "DeleteSChkbx";
             this.DeleteSChkbx.Size = new System.Drawing.Size(166, 17);
             this.DeleteSChkbx.TabIndex = 10;
@@ -350,7 +297,7 @@ namespace DigitalGameShelf
             this.ExtrasText.AutoSize = true;
             this.ExtrasText.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ExtrasText.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.ExtrasText.Location = new System.Drawing.Point(27, 7);
+            this.ExtrasText.Location = new System.Drawing.Point(25, 7);
             this.ExtrasText.Name = "ExtrasText";
             this.ExtrasText.Size = new System.Drawing.Size(39, 13);
             this.ExtrasText.TabIndex = 9;
@@ -361,9 +308,72 @@ namespace DigitalGameShelf
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pictureBox1.Location = new System.Drawing.Point(18, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(196, 143);
+            this.pictureBox1.Size = new System.Drawing.Size(196, 136);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.pictureBox4.Location = new System.Drawing.Point(-24, -111);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(899, 143);
+            this.pictureBox4.TabIndex = 25;
+            this.pictureBox4.TabStop = false;
+            // 
+            // AboutBTN
+            // 
+            this.AboutBTN.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.AboutBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.AboutBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AboutBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.AboutBTN.Location = new System.Drawing.Point(714, 5);
+            this.AboutBTN.Name = "AboutBTN";
+            this.AboutBTN.Size = new System.Drawing.Size(48, 23);
+            this.AboutBTN.TabIndex = 28;
+            this.AboutBTN.Text = "About";
+            this.AboutBTN.UseVisualStyleBackColor = false;
+            this.AboutBTN.Click += new System.EventHandler(this.AboutBTN_Click);
+            // 
+            // AddGameBTN
+            // 
+            this.AddGameBTN.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.AddGameBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.AddGameBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddGameBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.AddGameBTN.Location = new System.Drawing.Point(472, 5);
+            this.AddGameBTN.Name = "AddGameBTN";
+            this.AddGameBTN.Size = new System.Drawing.Size(237, 23);
+            this.AddGameBTN.TabIndex = 27;
+            this.AddGameBTN.Text = "Add A Game To The Shelf";
+            this.AddGameBTN.UseVisualStyleBackColor = false;
+            this.AddGameBTN.Click += new System.EventHandler(this.AddGameBTN_Click);
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.CloseButton.Location = new System.Drawing.Point(768, 5);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(26, 23);
+            this.CloseButton.TabIndex = 26;
+            this.CloseButton.Text = "X";
+            this.CloseButton.UseVisualStyleBackColor = false;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
+            // WelcomeText
+            // 
+            this.WelcomeText.AutoSize = true;
+            this.WelcomeText.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.WelcomeText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WelcomeText.ForeColor = System.Drawing.SystemColors.Control;
+            this.WelcomeText.Location = new System.Drawing.Point(8, 6);
+            this.WelcomeText.Name = "WelcomeText";
+            this.WelcomeText.Size = new System.Drawing.Size(83, 18);
+            this.WelcomeText.TabIndex = 29;
+            this.WelcomeText.Text = "Welcome!";
             // 
             // Main
             // 
@@ -371,11 +381,14 @@ namespace DigitalGameShelf
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.CancelButton = this.CloseButton;
             this.ClientSize = new System.Drawing.Size(800, 414);
             this.ControlBox = false;
+            this.Controls.Add(this.WelcomeText);
+            this.Controls.Add(this.AboutBTN);
+            this.Controls.Add(this.AddGameBTN);
+            this.Controls.Add(this.CloseButton);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.Grey);
             this.Controls.Add(this.LaunchBTN);
             this.Controls.Add(this.GameToLaunch);
             this.Controls.Add(this.listBox1);
@@ -386,12 +399,12 @@ namespace DigitalGameShelf
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DigitalGameShelf";
-            this.Grey.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,9 +415,6 @@ namespace DigitalGameShelf
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox GameToLaunch;
         private System.Windows.Forms.Button LaunchBTN;
-        private System.Windows.Forms.Panel Grey;
-        private System.Windows.Forms.Button CloseButton;
-        private System.Windows.Forms.Button AddGameBTN;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button OpenDGSFolderBTN;
         private System.Windows.Forms.Button SFBTN;
@@ -422,7 +432,11 @@ namespace DigitalGameShelf
         private System.Windows.Forms.Button Discord_BTN;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label DGS;
+        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button AboutBTN;
+        private System.Windows.Forms.Button AddGameBTN;
+        private System.Windows.Forms.Button CloseButton;
+        private System.Windows.Forms.Label WelcomeText;
     }
 }
 

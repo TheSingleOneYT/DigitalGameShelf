@@ -41,25 +41,25 @@ namespace DigitalGameShelf
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 40);
+            this.textBox1.Location = new System.Drawing.Point(12, 36);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(291, 20);
+            this.textBox1.Size = new System.Drawing.Size(294, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Game Directory";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 66);
+            this.textBox2.Location = new System.Drawing.Point(12, 62);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(291, 20);
+            this.textBox2.Size = new System.Drawing.Size(294, 20);
             this.textBox2.TabIndex = 1;
             this.textBox2.Text = "Game Name";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 121);
+            this.button1.Location = new System.Drawing.Point(12, 117);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(291, 23);
+            this.button1.Size = new System.Drawing.Size(294, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "Add Game To Shelf";
             this.button1.UseVisualStyleBackColor = true;
@@ -83,7 +83,7 @@ namespace DigitalGameShelf
             this.Grey.Controls.Add(this.CloseBTN);
             this.Grey.Controls.Add(this.CloseButton);
             this.Grey.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Grey.Location = new System.Drawing.Point(-266, -41);
+            this.Grey.Location = new System.Drawing.Point(-266, -39);
             this.Grey.Name = "Grey";
             this.Grey.Size = new System.Drawing.Size(590, 67);
             this.Grey.TabIndex = 4;
@@ -94,7 +94,7 @@ namespace DigitalGameShelf
             this.CloseBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CloseBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CloseBTN.Location = new System.Drawing.Point(547, 42);
+            this.CloseBTN.Location = new System.Drawing.Point(554, 42);
             this.CloseBTN.Name = "CloseBTN";
             this.CloseBTN.Size = new System.Drawing.Size(26, 23);
             this.CloseBTN.TabIndex = 5;
@@ -104,9 +104,9 @@ namespace DigitalGameShelf
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 92);
+            this.textBox3.Location = new System.Drawing.Point(12, 88);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(291, 20);
+            this.textBox3.Size = new System.Drawing.Size(294, 20);
             this.textBox3.TabIndex = 5;
             this.textBox3.Text = "Shortcut Name";
             // 
@@ -116,7 +116,7 @@ namespace DigitalGameShelf
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.CloseBTN;
-            this.ClientSize = new System.Drawing.Size(309, 152);
+            this.ClientSize = new System.Drawing.Size(318, 148);
             this.ControlBox = false;
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.Grey);
