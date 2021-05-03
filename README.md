@@ -18,7 +18,7 @@ Type in the game name textbox what the game is called IN THE DIRECTORY.
 
 (Optional) - Type in the shortcut name what you want to call the shortcut
 
-![screenshot](Assets_Pic_3_Optional.PNG)
+![screenshot](Assets_Pic_3_(Optional).PNG)
 
 Click 'Add Game To Shelf'
 
