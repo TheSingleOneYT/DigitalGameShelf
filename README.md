@@ -40,4 +40,4 @@ Click Launch!
 
 ![screenshot](Assets_Pic_7.PNG)
 
-The game should now start! Enjoy using DSG!
+The game should now start! Enjoy using DGS!
